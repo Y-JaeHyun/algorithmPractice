@@ -1,6 +1,23 @@
 
 #https://programmers.co.kr/learn/courses/30/lessons/17682
 
+import re
+
+
+def solution2(dartResult):
+    bonus = {'S' : 1, 'D' : 2, 'T' : 3}
+    option = {'' : 1, '*' : 2, '#' : -1}
+    p = re.compile('(\d+)([SDT])([*#]?)')
+    dart = p.findall(dartResult)
+    for i in range(len(dart)):
+        if dart[i][2] == '*' and i > 0:
+            dart[i-1] *= 2
+        dart[i] = int(dart[i][0]) ** bonus[dart[i][1]] * option[dart[i][2]]
+
+    answer = sum(dart)
+    return answer
+
+
 def solution(dartResult):
 
     scores = []
@@ -48,3 +65,11 @@ if __name__ == "__main__":
     solution("1D#2S*3S")
     solution("1T2D3D#")
     solution("1D2S3T*")
+    print(solution2("1S2D*3T"))
+    print(solution2("1D2S#10S"))
+    print(solution2("1D2S0T"))
+    print(solution2("1S*2T*3S"))
+    print(solution2("1D#2S*3S"))
+    print(solution2("1T2D3D#"))
+    print(solution2("1D2S3T*"))
+
