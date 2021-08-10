@@ -21,3 +21,8 @@
 
 * [blind_test_2018_5](https://github.com/bcnote3314/algorithmPractice/blob/main/programmers/kakao/blind_test_2018_5.py) <- 개선 필요
 *                     
+
+### 탐욕
+
+###
+
